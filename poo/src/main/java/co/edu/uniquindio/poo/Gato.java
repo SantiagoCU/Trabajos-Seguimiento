@@ -40,11 +40,13 @@ public void setNombre(String nombre){
 }
 
 public void setRaza(String raza){
-        this.raza = raza;
+
+    this.raza = raza;
 }
 
 public void setColor(String color){
-        this.color = color;
+
+    this.color = color;
 }
 
 public void setGenero(String genero){
