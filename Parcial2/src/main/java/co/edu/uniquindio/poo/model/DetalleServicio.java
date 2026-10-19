@@ -12,6 +12,7 @@ public class DetalleServicio extends Servicio{
     private String estado;
 
     private List<Tecnico> listaTecnicos = new ArrayList<>();
+    private List<Repuesto> listaRepuestos = new ArrayList<>();
 
     public DetalleServicio (String codigo, String nombre, String descripcion, float tarifa, TipoServicio tipoServicio,TipoEquipo equipo, String servicio, String descripcionFalla, byte horasTrabajo, String estado){
 
@@ -24,6 +25,7 @@ public class DetalleServicio extends Servicio{
         this.estado = estado;
 
         this.listaTecnicos = new ArrayList<>();
+        this.listaRepuestos = new ArrayList<>();
     }
 
     public TipoEquipo getEquipo(){
@@ -68,6 +70,17 @@ public class DetalleServicio extends Servicio{
 
     public List<Tecnico> getListaTecnicos(){
         return listaTecnicos;
+    }
+
+    public List<Repuesto> getListaRepuestos(){
+        return listaRepuestos;
+    }
+
+
+    public void agregarRepuesto(Repuesto repuesto){
+        if(repuesto != null){
+            this.listaRepuestos.add(repuesto);
+        }
     }
 
 }
