@@ -2,28 +2,29 @@ package co.edu.uniquindio.poo.model;
 
 public class Repuesto {
 
-    private String repuesto;
+    private String codigo;
     private String nombre;
     private String descripcion;
     private float precioUnitario;
-
+    private int cantidadDisponible;
     private TipoEquipo categoriaCompatible;
 
-    public Repuesto (String repuesto, String nombre, String descripcion, float precioUnitario, TipoEquipo categoriaCompatible){
+    public Repuesto (String codigo, String nombre, String descripcion, float precioUnitario, int cantidadDisponible ,TipoEquipo categoriaCompatible){
 
-        this.repuesto = repuesto;
+        this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precioUnitario = precioUnitario;
         this.categoriaCompatible = categoriaCompatible;
+        this.cantidadDisponible = cantidadDisponible;
     }
 
-    public String getRepuesto(){
-        return repuesto;
+    public String getCodigo(){
+        return codigo;
     }
 
-    public void setRepuesto(String repuesto){
-        this.repuesto = repuesto;
+    public void setCodigo(String repuesto){
+        this.codigo = repuesto;
     }
 
     public String getNombre(){
@@ -56,5 +57,23 @@ public class Repuesto {
 
     public void setCategoriaCompatible(TipoEquipo categoriaCompatible){
         this.categoriaCompatible = categoriaCompatible;
+    }
+
+    public int getCantidadDisponible(){
+        return cantidadDisponible;
+    }
+
+    public void setCantidadDisponible(int cantidadDisponible){
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    public boolean disponibilidadCritica(){
+        return this.cantidadDisponible < 5;
+    }
+
+    public void descontar(int cantidad){
+        if(this.cantidadDisponible >= cantidad){
+            this.cantidadDisponible = this.cantidadDisponible - cantidad;
+        }
     }
 }

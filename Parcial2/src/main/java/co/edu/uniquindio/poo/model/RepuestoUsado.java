@@ -26,4 +26,8 @@ public class RepuestoUsado {
     public void setCantidadUsada(byte cantidadUsada){
         this.cantidadUsada = cantidadUsada;
     }
+
+    public float calcularSubTotal(){
+        return this.cantidadUsada * this.repuesto.getPrecioUnitario();
+    }
 }
