@@ -18,4 +18,36 @@ public class Telefono extends EquipoTecnologico {
         this.capacidadAlmacenamiento = capacidadAlmacenamiento;
         this.graficaDedicada = graficaDedicada;
     }
+
+    public String getProcesador(){
+        return procesador;
+    }
+
+    public void setProcesador(String procesador){
+        this.procesador = procesador;
+    }
+
+    public String getMemoriaRam(){
+        return memoriaRam;
+    }
+
+    public void setMemoriaRam(String memoriaRam){
+        this.memoriaRam = memoriaRam;
+    }
+
+    public String getCapacidadAlmacenamiento(){
+        return capacidadAlmacenamiento;
+    }
+
+    public void setCapacidadAlmacenamiento(String capacidadAlmacenamiento){
+        this.capacidadAlmacenamiento = capacidadAlmacenamiento;
+    }
+
+    public boolean getGraficaDedicada(){
+        return graficaDedicada;
+    }
+
+    public void setGraficaDedicada(boolean graficaDedicada){
+        this.graficaDedicada = graficaDedicada;
+    }
 }

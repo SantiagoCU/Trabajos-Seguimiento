@@ -23,4 +23,27 @@ public class Tienda {
 
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public List<OrdenServicio> getListaOrdenes() {
+        return listaOrdenes;
+    }
+
+    public List<Tecnico> getListaTecnicos() {
+        return listaTecnicos;
+    }
+
+    public List<Repuesto> getListaRepuestos() {
+        return listaRepuestos;
+    }
 }

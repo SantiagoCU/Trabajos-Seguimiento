@@ -18,4 +18,36 @@ public class Escritorio extends EquipoTecnologico {
         this.capacidadAlmacenamiento = capacidadAlmacenamiento;
         this.compatible = compatible;
     }
+
+    public String getSistemaOperativo(){
+        return sistemaOperativo;
+    }
+
+    public void setSistemaOperativo(String sistemaOperativo){
+        this.sistemaOperativo = sistemaOperativo;
+    }
+
+    public String getBateria(){
+        return bateria;
+    }
+
+    public void setBateria(String bateria){
+        this.bateria = bateria;
+    }
+
+    public String getCapacidadAlmacenamiento(){
+        return capacidadAlmacenamiento;
+    }
+
+    public void setCapacidadAlmacenamiento(String capacidadAlmacenamiento){
+        this.capacidadAlmacenamiento = capacidadAlmacenamiento;
+    }
+
+    public boolean getCompatible(){
+        return compatible;
+    }
+
+    public void setCompatible(boolean compatible){
+        this.compatible = compatible;
+    }
 }

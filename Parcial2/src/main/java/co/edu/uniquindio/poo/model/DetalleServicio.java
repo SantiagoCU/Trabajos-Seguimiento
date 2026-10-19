@@ -26,4 +26,48 @@ public class DetalleServicio extends Servicio{
         this.listaTecnicos = new ArrayList<>();
     }
 
+    public TipoEquipo getEquipo(){
+        return equipo;
+    }
+
+    public void setEquipo(TipoEquipo equipo){
+        this.equipo = equipo;
+    }
+
+    public String getServicio(){
+        return servicio;
+    }
+
+    public void setServicio(String servicio){
+        this.servicio = servicio;
+    }
+
+    public String getDescripcionFalla(){
+        return descripcionFalla;
+    }
+
+    public void setDescripcionFalla(String descripcionFalla){
+        this.descripcionFalla = descripcionFalla;
+    }
+
+    public byte getHorasTrabajo(){
+        return horasTrabajo;
+    }
+
+    public void setHorasTrabajo(byte horasTrabajo){
+        this.horasTrabajo = horasTrabajo;
+    }
+
+    public String getEstado(){
+        return estado;
+    }
+
+    public void setEstado(String estado){
+        this.estado = estado;
+    }
+
+    public List<Tecnico> getListaTecnicos(){
+        return listaTecnicos;
+    }
+
 }

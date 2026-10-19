@@ -17,4 +17,44 @@ public class Tecnico {
         this.especialidad = especialidad;
         this.estadoLaboral = estadoLaboral;
     }
+
+    public String getCodigo(){
+        return codigo;
+    }
+
+    public void setCodigo(String codigo){
+        this.codigo = codigo;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public String getDocumento(){
+        return documento;
+    }
+
+    public void setDocumento(String documento){
+        this.documento = documento;
+    }
+
+    public Especialidad getEspecialidad(){
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidad especialidad){
+        this.especialidad = especialidad;
+    }
+
+    public EstadoLaboral getEstadoLaboral(){
+        return estadoLaboral;
+    }
+
+    public void setEstadoLaboral(EstadoLaboral estadoLaboral){
+        this.estadoLaboral = estadoLaboral;
+    }
 }

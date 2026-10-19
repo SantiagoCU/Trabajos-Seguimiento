@@ -22,4 +22,32 @@ public class OrdenServicio extends Servicio {
 
         this.listaClientes = new ArrayList<>();
     }
+
+    public LocalDate getFechaCreacion(){
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDate fechaCreacion){
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public String getObservaciones(){
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones){
+        this.observaciones = observaciones;
+    }
+
+    public EstadoOrden getEstado(){
+        return estado;
+    }
+
+    public void setEstado(EstadoOrden estado){
+        this.estado = estado;
+    }
+
+    public List<Cliente> getListaClientes(){
+        return listaClientes;
+    }
 }

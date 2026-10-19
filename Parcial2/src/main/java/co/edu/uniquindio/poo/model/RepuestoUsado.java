@@ -10,4 +10,20 @@ public class RepuestoUsado {
         this.repuesto = repuesto;
         this.cantidadUsada = cantidadUsada;
     }
+
+    public Repuesto getRepuesto(){
+        return repuesto;
+    }
+
+    public void setRepuesto(Repuesto repuesto){
+        this.repuesto = repuesto;
+    }
+
+    public byte getCantidadUsada(){
+        return cantidadUsada;
+    }
+
+    public void setCantidadUsada(byte cantidadUsada){
+        this.cantidadUsada = cantidadUsada;
+    }
 }
