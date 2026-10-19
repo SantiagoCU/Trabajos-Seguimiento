@@ -270,7 +270,6 @@ public class Tienda {
         return null;
     }
 
-
     public double calcularValorDetalle(String codigoOrden, String codigoDetalle) {
         OrdenServicio orden = buscarOrden(codigoOrden);
         if (orden != null) {
@@ -282,7 +281,6 @@ public class Tienda {
         return 0;
     }
 
-
     public double calcularValorOrden(String codigoOrden) {
         OrdenServicio orden = buscarOrden(codigoOrden);
         if (orden != null) {
@@ -291,7 +289,6 @@ public class Tienda {
         return 0;
     }
 
-    
     public double calcularTotal() {
         double totalTienda = 0;
         for (OrdenServicio o : this.listaOrdenes) {
@@ -299,6 +296,59 @@ public class Tienda {
         }
         return totalTienda;
     }
+
+    public void finalizarOrden(String codigoOrden) {
+        OrdenServicio orden = buscarOrden(codigoOrden);
+        if (orden != null) {
+            orden.cambiarEstado(EstadoOrden.FINALIZADA);
+        }
+    }
+
+    public void consultarOrdenesCliente(String documentoCliente) {
+        System.out.println("--- Órdenes del Cliente: " + documentoCliente + " ---");
+        for (OrdenServicio o : this.listaOrdenes) {
+            if (o.getCliente().getDocumento().equals(documentoCliente)) {
+                System.out.println("Orden Código: " + o.getCodigo() + " | Estado: " + o.getEstado());
+            }
+        }
+    }
+
+    public int consultarTrabajosTecnico(String codigoTecnico) {
+        int contadorTrabajos = 0;
+        for (OrdenServicio o : this.listaOrdenes) {
+            for (DetalleServicio detalle : o.getListaDetalles()) {
+                // Validamos que el detalle tenga un técnico asignado y coincida el código
+                if (detalle.getTecnico() != null && detalle.getTecnico().getCodigo().equals(codigoTecnico)) {
+                    contadorTrabajos = contadorTrabajos + 1;
+                }
+            }
+        }
+        return contadorTrabajos;
+    }
+    
+    public void generarReporteServicios() {
+        int diagnosticos = 0;
+        int mantenimientos = 0;
+        int reparaciones = 0;
+
+        for (OrdenServicio o : this.listaOrdenes) {
+            for (DetalleServicio detalle : o.getListaDetalles()) {
+                if (detalle.getTipoServicio() == TipoServicio.DIAGNOSTICO) {
+                    diagnosticos = diagnosticos + 1;
+                } else if (detalle.getTipoServicio() == TipoServicio.MANTENIMIENTO_PREVENTIVO) {
+                    mantenimientos = mantenimientos + 1;
+                } else if (detalle.getTipoServicio() == TipoServicio.REPARACION_CORRECTIVA) {
+                    reparaciones = reparaciones + 1;
+                }
+            }
+        }
+
+        System.out.println("--- REPORTE CONSOLIDADO DE SERVICIOS ---");
+        System.out.println("Cantidad de Diagnósticos: " + diagnosticos);
+        System.out.println("Cantidad de Mantenimientos Preventivos: " + mantenimientos);
+        System.out.println("Cantidad de Reparaciones Correctivas: " + reparaciones);
+    }
+
 
 
 }
