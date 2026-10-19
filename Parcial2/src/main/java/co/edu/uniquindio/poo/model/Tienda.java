@@ -325,7 +325,7 @@ public class Tienda {
         }
         return contadorTrabajos;
     }
-    
+
     public void generarReporteServicios() {
         int diagnosticos = 0;
         int mantenimientos = 0;
