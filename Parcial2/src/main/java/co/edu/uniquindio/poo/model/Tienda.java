@@ -149,7 +149,7 @@ public class Tienda {
         }
     }
 
-    public void agregarDetalleA (String codigoOrden, DetalleServicio nuevoDetalle){
+    public void agregarDetalle(String codigoOrden, DetalleServicio nuevoDetalle){
         if (codigoOrden != null && nuevoDetalle != null) {
 
             OrdenServicio ordenDestino = null;
@@ -164,6 +164,80 @@ public class Tienda {
             }
         }
     }
+
+    public void asignarTecnico(String codigoOrden, String codigoDetalle, String codigoTecnico) {
+        if (codigoOrden != null && codigoDetalle != null && codigoTecnico != null) {
+            OrdenServicio orden = null;
+            for (OrdenServicio o : this.listaOrdenes) {
+                if (o.getCodigo().equals(codigoOrden)) {
+                    orden = o;
+                }
+            }
+            Tecnico tecnico = null;
+            for (Tecnico t : this.listaTecnicos) {
+                if (t.getCodigo().equals(codigoTecnico)) {
+                    tecnico = t;
+                }
+            }
+            if (orden != null && tecnico != null) {
+                if (tecnico.estadoActivo()) {
+                    DetalleServicio detalle = orden.buscarDetalle(codigoDetalle);
+                    if (detalle != null) {
+                        detalle.asignarTecnico(tecnico);
+                    }
+                }
+            }
+        }
+    }
+
+    public void registrarRepuestosUtilizados(String codigoOrden, String codigoDetalle, String codigoRepuesto, byte cantidadAUsar) {
+        if (codigoOrden != null && codigoDetalle != null && codigoRepuesto != null && cantidadAUsar > 0) {
+            OrdenServicio orden = null;
+            for (OrdenServicio o : this.listaOrdenes) {
+                if (o.getCodigo().equals(codigoOrden)) {
+                    orden = o;
+                }
+            }
+            Repuesto repuesto = null;
+            for (Repuesto r : this.listaRepuestos) {
+                if (r.getCodigo().equals(codigoRepuesto)) {
+                    repuesto = r;
+                }
+            }
+            if (orden != null && repuesto != null) {
+                DetalleServicio detalle = orden.buscarDetalle(codigoDetalle);
+                if (detalle != null) {
+                    if (repuesto.getCantidadDisponible() >= cantidadAUsar) {
+                        repuesto.descontar(cantidadAUsar);
+                        RepuestoUsado nuevoRU = new RepuestoUsado(repuesto, cantidadAUsar);
+                        detalle.agregarRepuesto(nuevoRU);
+                    }
+                }
+            }
+        }
+    }
+
+    public void actualizarEstadoDetalle(String codigoOrden, String codigoDetalle, String nuevoEstado) {
+        if (codigoOrden != null && codigoDetalle != null && nuevoEstado != null) {
+            OrdenServicio orden = null;
+            for (OrdenServicio o : this.listaOrdenes) {
+                if (o.getCodigo().equals(codigoOrden)) {
+                    orden = o;
+                }
+            }
+            if (orden != null) {
+                DetalleServicio detalle = orden.buscarDetalle(codigoDetalle);
+                if (detalle != null) {
+                    detalle.actualizarEstado(nuevoEstado); 
+                }
+            }
+        }
+    }
+
+
+
+
+
 
 
 
