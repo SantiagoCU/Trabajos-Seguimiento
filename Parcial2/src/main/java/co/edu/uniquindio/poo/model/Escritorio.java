@@ -50,4 +50,7 @@ public class Escritorio extends EquipoTecnologico {
     public void setCompatible(boolean compatible){
         this.compatible = compatible;
     }
+
+
+
 }

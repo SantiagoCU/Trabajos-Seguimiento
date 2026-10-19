@@ -50,4 +50,6 @@ public class Telefono extends EquipoTecnologico {
     public void setGraficaDedicada(boolean graficaDedicada){
         this.graficaDedicada = graficaDedicada;
     }
+
+
 }

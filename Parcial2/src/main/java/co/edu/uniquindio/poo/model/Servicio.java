@@ -57,4 +57,7 @@ public abstract class Servicio {
         this.tipoServicio = tipoServicio;
     }
 
+
+    public abstract double calcularCosto();
+
 }

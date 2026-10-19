@@ -50,4 +50,9 @@ public class Portatil extends EquipoTecnologico {
     public void setBateriaExtraible(boolean bateriaExtraible){
         this.bateriaExtraible = bateriaExtraible;
     }
+
+
+
+
+
 }

@@ -79,4 +79,7 @@ public abstract class EquipoTecnologico {
         this.tipoEquipo = tipoEquipo;
     }
 
+
+
+
 }
