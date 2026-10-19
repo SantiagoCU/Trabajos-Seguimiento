@@ -9,11 +9,11 @@ public class DetalleServicio extends Servicio{
     private String servicio;
     private byte horasTrabajo;
     private String estado;
+    private Tecnico tecnico;
 
-    private List<Tecnico> listaTecnicos = new ArrayList<>();
-    private List<Repuesto> listaRepuestos = new ArrayList<>();
+    private List<RepuestoUsado> listaRepuestos = new ArrayList<>();
 
-    public DetalleServicio (String codigo, String nombre, String descripcion, float tarifa, TipoServicio tipoServicio,TipoEquipo equipo, String servicio,  byte horasTrabajo, String estado){
+    public DetalleServicio (String codigo, String nombre, String descripcion, float tarifa, TipoServicio tipoServicio,TipoEquipo equipo, String servicio,  byte horasTrabajo, String estado, Tecnico tecnico){
 
         super(codigo, nombre, descripcion, tarifa, tipoServicio);
 
@@ -21,8 +21,9 @@ public class DetalleServicio extends Servicio{
         this.servicio = servicio;
         this.horasTrabajo = horasTrabajo;
         this.estado = estado;
+        this.tecnico = tecnico;
 
-        this.listaTecnicos = new ArrayList<>();
+
         this.listaRepuestos = new ArrayList<>();
     }
 
@@ -58,16 +59,20 @@ public class DetalleServicio extends Servicio{
         this.estado = estado;
     }
 
-    public List<Tecnico> getListaTecnicos(){
-        return listaTecnicos;
+    public Tecnico getTecnico(){
+        return tecnico;
     }
 
-    public List<Repuesto> getListaRepuestos(){
+    public void setTecnico(Tecnico tecnico){
+        this.tecnico = tecnico;
+    }
+
+    public List<RepuestoUsado> getListaRepuestos(){
         return listaRepuestos;
     }
 
 
-    public void agregarRepuesto(Repuesto repuesto){
+    public void agregarRepuesto(RepuestoUsado repuesto){
         if(repuesto != null){
             this.listaRepuestos.add(repuesto);
         }
@@ -76,7 +81,7 @@ public class DetalleServicio extends Servicio{
     public void asignarTecnico(Tecnico tecnico){
         if(tecnico != null &&  tecnico.getEstadoLaboral() == EstadoLaboral.ACTIVO){
 
-            this.listaTecnicos.add(tecnico);
+            this.setTecnico(tecnico);
         }
     }
 
@@ -103,8 +108,8 @@ public class DetalleServicio extends Servicio{
 
 
             if (this.listaRepuestos != null) {
-                for (Repuesto repuesto : this.listaRepuestos) {
-                    total += repuesto.getPrecioUnitario();
+                for (RepuestoUsado repuesto : this.listaRepuestos) {
+                    total += repuesto.calcularSubTotal();
                 }
             }
             return total;

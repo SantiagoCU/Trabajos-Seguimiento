@@ -4,35 +4,35 @@ import java.time.LocalDate;
 
 public class Telefono extends EquipoTecnologico {
 
-    private String procesador;
-    private String memoriaRam;
+    private String sistemaOperativo;
+    private String bateria;
     private String capacidadAlmacenamiento;
-    private boolean graficaDedicada;
+    private boolean compatible;
 
-    public Telefono (String codigo, String numSerie, String marca, String modelo, LocalDate añoFabricacion, String estado, TipoEquipo tipoEquipo, String procesador, String memoriaRam, String capacidadAlmacenamiento, boolean graficaDedicada){
+    public Telefono (String codigo, String numSerie, String marca, String modelo, LocalDate añoFabricacion, String estado, TipoEquipo tipoEquipo, String sistemaOperativo, String bateria, String capacidadAlmacenamiento, boolean compatible){
 
         super(codigo,numSerie, marca, modelo, añoFabricacion, estado, tipoEquipo);
 
-        this.procesador = procesador;
-        this.memoriaRam = memoriaRam;
+        this.sistemaOperativo = sistemaOperativo;
+        this.bateria = bateria;
         this.capacidadAlmacenamiento = capacidadAlmacenamiento;
-        this.graficaDedicada = graficaDedicada;
+        this.compatible = compatible;
     }
 
-    public String getProcesador(){
-        return procesador;
+    public String getSistemaOperativo(){
+        return sistemaOperativo;
     }
 
-    public void setProcesador(String procesador){
-        this.procesador = procesador;
+    public void setSistemaOperativo(String sistemaOperativo){
+        this.sistemaOperativo = sistemaOperativo;
     }
 
-    public String getMemoriaRam(){
-        return memoriaRam;
+    public String getBateria(){
+        return bateria;
     }
 
-    public void setMemoriaRam(String memoriaRam){
-        this.memoriaRam = memoriaRam;
+    public void setBateria(String bateria){
+        this.bateria = bateria;
     }
 
     public String getCapacidadAlmacenamiento(){
@@ -43,12 +43,12 @@ public class Telefono extends EquipoTecnologico {
         this.capacidadAlmacenamiento = capacidadAlmacenamiento;
     }
 
-    public boolean getGraficaDedicada(){
-        return graficaDedicada;
+    public boolean getCompatible(){
+        return compatible;
     }
 
-    public void setGraficaDedicada(boolean graficaDedicada){
-        this.graficaDedicada = graficaDedicada;
+    public void setCompatible(boolean compatible){
+        this.compatible = compatible;
     }
 
 

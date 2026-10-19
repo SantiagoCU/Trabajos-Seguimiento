@@ -124,5 +124,52 @@ public class Tienda {
         }
     }
 
+    public void crearOrden(String documentoCliente, OrdenServicio nuevaOrden) {
+        if (nuevaOrden != null && documentoCliente != null) {
+
+            Cliente clienteExiste = null;
+            for (Cliente c : this.listaClientes) {
+                if (c.getDocumento().equals(documentoCliente)) {
+                    clienteExiste = c;
+                }
+            }
+
+            if (clienteExiste != null) {
+                boolean ordenExiste = false;
+                for (OrdenServicio o : this.listaOrdenes) {
+                    if (o.getCodigo().equals(nuevaOrden.getCodigo())) {
+                        ordenExiste = true; // Ya hay una orden con ese código
+                    }
+                }
+
+                if (ordenExiste == false) {
+                    this.listaOrdenes.add(nuevaOrden);
+                }
+            }
+        }
+    }
+
+    public void agregarDetalleA (String codigoOrden, DetalleServicio nuevoDetalle){
+        if (codigoOrden != null && nuevoDetalle != null) {
+
+            OrdenServicio ordenDestino = null;
+            for (OrdenServicio o : this.listaOrdenes) {
+                if (o.getCodigo().equals(codigoOrden)) {
+                    ordenDestino = o;
+                }
+            }
+
+            if (ordenDestino != null) {
+                ordenDestino.agregarDetalle(nuevoDetalle);
+            }
+        }
+    }
+
+
+
+
+
+
+
 
 }
