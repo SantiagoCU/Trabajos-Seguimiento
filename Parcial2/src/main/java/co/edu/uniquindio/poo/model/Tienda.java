@@ -46,4 +46,83 @@ public class Tienda {
     public List<Repuesto> getListaRepuestos() {
         return listaRepuestos;
     }
+
+
+
+    public void registrarCliente(Cliente cliente){
+        if(cliente != null){
+
+            boolean encontrado = false;
+
+            for(Cliente c : this.listaClientes){
+                if(c.getDocumento().equals(cliente.getDocumento())){
+                    encontrado = true;
+                }
+            }
+
+            if(encontrado == false){
+                this.listaClientes.add(cliente);
+            }
+        }
+    }
+
+    public void registrarEquipo(String documentoCliente, EquipoTecnologico nuevoEquipo) {
+        if (nuevoEquipo != null && documentoCliente != null) {
+
+            Cliente clienteDestino = null;
+            for (Cliente c : this.listaClientes) {
+                if (c.getDocumento().equals(documentoCliente)) {
+                    clienteDestino = c;
+                }
+            }
+
+            if (clienteDestino != null) {
+                boolean equipoExiste = false;
+
+                for (EquipoTecnologico e : clienteDestino.getListaEquipos()) {
+                    if (e.getCodigo().equals(nuevoEquipo.getCodigo())) {
+                        equipoExiste = true;
+                    }
+                }
+
+                if (equipoExiste == false) {
+                    clienteDestino.agregarEquipo(nuevoEquipo);
+                }
+            }
+        }
+    }
+
+    public void registrarTecnico(Tecnico nuevoTecnico) {
+        if (nuevoTecnico != null) {
+            boolean tecnicoExiste = false;
+
+            for (Tecnico t : this.listaTecnicos) {
+                if (t.getCodigo().equals(nuevoTecnico.getCodigo())) {
+                    tecnicoExiste = true;
+                }
+            }
+
+            if (tecnicoExiste == false) {
+                this.listaTecnicos.add(nuevoTecnico);
+            }
+        }
+    }
+
+    public void registrarRepuesto(Repuesto nuevoRepuesto) {
+        if (nuevoRepuesto != null) {
+            boolean repuestoExiste = false;
+
+            for (Repuesto r : this.listaRepuestos) {
+                if (r.getCodigo().equals(nuevoRepuesto.getCodigo())) {
+                    repuestoExiste = true;
+                }
+            }
+
+            if (repuestoExiste == false) {
+                this.listaRepuestos.add(nuevoRepuesto);
+            }
+        }
+    }
+
+
 }
