@@ -270,6 +270,35 @@ public class Tienda {
         return null;
     }
 
+
+    public double calcularValorDetalle(String codigoOrden, String codigoDetalle) {
+        OrdenServicio orden = buscarOrden(codigoOrden);
+        if (orden != null) {
+            DetalleServicio detalle = orden.buscarDetalle(codigoDetalle);
+            if (detalle != null) {
+                return detalle.calcularCosto();
+            }
+        }
+        return 0;
+    }
+
+
+    public double calcularValorOrden(String codigoOrden) {
+        OrdenServicio orden = buscarOrden(codigoOrden);
+        if (orden != null) {
+            return orden.calcularCosto();
+        }
+        return 0;
+    }
+
     
+    public double calcularTotal() {
+        double totalTienda = 0;
+        for (OrdenServicio o : this.listaOrdenes) {
+            totalTienda = totalTienda + o.calcularCosto();
+        }
+        return totalTienda;
+    }
+
 
 }
