@@ -228,22 +228,48 @@ public class Tienda {
             if (orden != null) {
                 DetalleServicio detalle = orden.buscarDetalle(codigoDetalle);
                 if (detalle != null) {
-                    detalle.actualizarEstado(nuevoEstado); 
+                    detalle.actualizarEstado(nuevoEstado);
                 }
             }
         }
     }
 
+    public Cliente buscarCliente(String documento) {
+        for (Cliente c : this.listaClientes) {
+            if (c.getDocumento().equals(documento)) {
+                return c;
+            }
+        }
+        return null;
+    }
 
+    public Tecnico buscarTecnico(String codigo) {
+        for (Tecnico t : this.listaTecnicos) {
+            if (t.getCodigo().equals(codigo)) {
+                return t;
+            }
+        }
+        return null;
+    }
 
+    public Repuesto buscarRepuesto(String codigo) {
+        for (Repuesto r : this.listaRepuestos) {
+            if (r.getCodigo().equals(codigo)) {
+                return r;
+            }
+        }
+        return null;
+    }
 
+    public OrdenServicio buscarOrden(String codigo) {
+        for (OrdenServicio o : this.listaOrdenes) {
+            if (o.getCodigo().equals(codigo)) {
+                return o;
+            }
+        }
+        return null;
+    }
 
-
-
-
-
-
-
-
+    
 
 }
