@@ -58,4 +58,21 @@ public class Cliente {
         return listaEquipos;
     }
 
+
+    public void agregarEquipo(EquipoTecnologico equipo){
+        if(equipo != null){
+            this.listaEquipos.add(equipo);
+        }
+    }
+
+    public EquipoTecnologico buscarEquipo(String codigo){
+
+        for(EquipoTecnologico e : this.listaEquipos){
+            if(e.getCodigo().equals(codigo)){
+                return e;
+            }
+        }
+        return null;
+    }
+
 }

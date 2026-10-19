@@ -57,4 +57,8 @@ public class Tecnico {
     public void setEstadoLaboral(EstadoLaboral estadoLaboral){
         this.estadoLaboral = estadoLaboral;
     }
+
+    public boolean estadoActivo(){
+        return this.estadoLaboral == EstadoLaboral.ACTIVO;
+    }
 }
